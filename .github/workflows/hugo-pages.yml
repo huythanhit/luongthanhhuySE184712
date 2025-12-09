@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./AWS\ Workshop
+        working-directory: "./AWS Workshop"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -38,7 +38,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./AWS Workshop/public
+          path: "./AWS Workshop/public"
 
   deploy:
     environment:
