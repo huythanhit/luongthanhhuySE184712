@@ -1,0 +1,643 @@
+<!doctype html><html lang=en class="js csstransforms3d"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.152.2"><meta name=description content><meta name=author content="thienlh@thienlu.com"><link rel=icon href=../../images/favicon.png type=image/png><title>Blog 2 :: Internship Report</title><link href=../../css/nucleus.css?1765303762 rel=stylesheet><link href=../../css/fontawesome-all.min.css?1765303762 rel=stylesheet><link href=../../css/hybrid.css?1765303762 rel=stylesheet><link href=../../css/featherlight.min.css?1765303762 rel=stylesheet><link href=../../css/perfect-scrollbar.min.css?1765303762 rel=stylesheet><link href=../../css/auto-complete.css?1765303762 rel=stylesheet><link href=../../css/atom-one-dark-reasonable.css?1765303762 rel=stylesheet><link href=../../css/theme.css?1765303762 rel=stylesheet><link href=../../css/hugo-theme.css?1765303762 rel=stylesheet><link href=../../css/theme-workshop.css?1765303762 rel=stylesheet><script src=../../js/jquery-3.3.1.min.js?1765303762></script><style>:root #header+#content>#left>#rlblock_left{display:none!important}</style></head><body data-url=../../3-blogstranslated/3.2-blog2/><nav id=sidebar class=showVisitedLinks><div id=header-wrapper><div id=header><a id=logo href=../../><svg id="Layer_1" data-name="Layer 1" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff}.cls-2{fill:#f90;fill-rule:evenodd}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09 10.85a4.7 4.7.0 00.19 1.48 7.73 7.73.0 00.54 1.19.77.77.0 01.12.38.64.64.0 01-.32.49l-1 .7a.83.83.0 01-.44.15.69.69.0 01-.49-.23 3.8 3.8.0 01-.6-.77q-.25-.42-.51-1a6.14 6.14.0 01-4.89 2.3 4.54 4.54.0 01-3.32-1.19 4.27 4.27.0 01-1.22-3.2 4.28 4.28.0 011.46-3.4A6.06 6.06.0 017.69 6.46a12.47 12.47.0 011.76.13q.92.13 1.91.36V5.73a3.65 3.65.0 00-.79-2.66A3.81 3.81.0 007.86 2.3a7.71 7.71.0 00-1.79.22 12.78 12.78.0 00-1.79.57 4.55 4.55.0 01-.58.22h-.26q-.35.0-.35-.52V2a1.09 1.09.0 01.12-.58 1.2 1.2.0 01.47-.35A10.88 10.88.0 015.77.32 10.19 10.19.0 018.36.0a6 6 0 014.35 1.35 5.49 5.49.0 011.38 4.09zM7.34 13.38a5.36 5.36.0 001.72-.31A3.63 3.63.0 0010.63 12 2.62 2.62.0 0011.19 11a5.63 5.63.0 00.16-1.44v-.7a14.35 14.35.0 00-1.53-.28 12.37 12.37.0 00-1.56-.1 3.84 3.84.0 00-2.47.67A2.34 2.34.0 005 11a2.35 2.35.0 00.61 1.76A2.4 2.4.0 007.34 13.38zm13.35 1.8a1 1 0 01-.64-.16 1.3 1.3.0 01-.35-.65L15.81 1.51a3 3 0 01-.15-.67.36.36.0 01.41-.41H17.7a1 1 0 01.65.16 1.4 1.4.0 01.33.65l2.79 11 2.59-11A1.17 1.17.0 0124.39.6a1.1 1.1.0 01.67-.16H26.4a1.1 1.1.0 01.67.16 1.17 1.17.0 01.32.65L30 12.39 32.88 1.25A1.39 1.39.0 0133.22.6a1 1 0 01.65-.16h1.54a.36.36.0 01.41.41 1.36 1.36.0 010 .26 3.64 3.64.0 01-.12.41l-4 12.86a1.3 1.3.0 01-.35.65 1 1 0 01-.64.16H29.25a1 1 0 01-.67-.17 1.26 1.26.0 01-.32-.67L25.67 3.64l-2.56 10.7a1.26 1.26.0 01-.32.67 1 1 0 01-.67.17zm21.36.44a11.28 11.28.0 01-2.56-.29 7.44 7.44.0 01-1.92-.67 1 1 0 01-.61-.93v-.84q0-.52.38-.52a.9.9.0 01.31.06l.42.17a8.77 8.77.0 001.83.58 9.78 9.78.0 002 .2 4.48 4.48.0 002.43-.55 1.76 1.76.0 00.86-1.57 1.61 1.61.0 00-.45-1.16A4.29 4.29.0 0043 9.22l-2.41-.76A5.15 5.15.0 0138 6.78a3.94 3.94.0 01-.83-2.41 3.7 3.7.0 01.45-1.85 4.47 4.47.0 011.19-1.37 5.27 5.27.0 011.7-.86A7.4 7.4.0 0142.6.0a8.87 8.87.0 011.12.07q.57.07 1.08.19t.95.26a4.27 4.27.0 01.7.29 1.59 1.59.0 01.49.41.94.94.0 01.15.55v.79q0 .52-.38.52a1.76 1.76.0 01-.64-.2 7.74 7.74.0 00-3.2-.64 4.37 4.37.0 00-2.21.47 1.6 1.6.0 00-.79 1.48 1.58 1.58.0 00.49 1.18 4.94 4.94.0 001.83.92L44.55 7a5.08 5.08.0 012.57 1.6A3.76 3.76.0 0147.9 11a4.21 4.21.0 01-.44 1.93 4.4 4.4.0 01-1.21 1.47 5.43 5.43.0 01-1.85.93A8.25 8.25.0 0142.05 15.62z"/><path class="cls-2" d="M45.19 23.81C39.72 27.85 31.78 30 25 30A36.64 36.64.0 01.22 20.57c-.51-.46-.06-1.09.56-.74A49.78 49.78.0 0025.53 26.4 49.23 49.23.0 0044.4 22.53C45.32 22.14 46.1 23.14 45.19 23.81z"/><path class="cls-2" d="M47.47 21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74 3.13-2.2 8.27-1.57 8.86-.83s-.16 5.89-3.09 8.35c-.45.38-.88.18-.68-.32C46.69 25.8 48.17 22.11 47.47 21.21z"/></svg></a></div><div class=searchbox><label for=search-by><i class="fas fa-search"></i></label>
+<input data-search-input id=search-by type=search placeholder=Search...>
+<span data-search-clear><i class="fas fa-times"></i></span></div><script type=text/javascript src=../../js/lunr.min.js?1765303762></script><script type=text/javascript src=../../js/auto-complete.js?1765303762></script><script type=text/javascript>var baseurl="/"</script><script type=text/javascript src=../../js/search.js?1765303762></script></div><div class=highlightable><ul class=topics><li data-nav-id=/1-worklog/ title=Worklog class=dd-item><a href=../../1-worklog/><b>1. </b>Worklog
+<i class="fas fa-check read-icon"></i></a><ul><li data-nav-id=/1-worklog/1.1-week1/ title="Week 1 Worklog" class=dd-item><a href=../../1-worklog/1.1-week1/><b>1.1. </b>Week 1 Worklog
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/1-worklog/1.3-week3/ title="Week 3 Worklog" class=dd-item><a href=../../1-worklog/1.3-week3/><b>1.3. </b>Week 3 Worklog
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/1-worklog/1.4-week4/ title="Week 4 Worklog" class=dd-item><a href=../../1-worklog/1.4-week4/><b>1.4. </b>Week 4 Worklog
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/1-worklog/1.5-week5/ title="Week 5 Worklog" class=dd-item><a href=../../1-worklog/1.5-week5/><b>1.5. </b>Week 5 Worklog
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/1-worklog/1.6-week6/ title="Week 6 Worklog" class=dd-item><a href=../../1-worklog/1.6-week6/><b>1.6. </b>Week 6 Worklog
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/1-worklog/1.7-week7/ title="Week 7 Worklog" class=dd-item><a href=../../1-worklog/1.7-week7/><b>1.7. </b>Week 7 Worklog
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/1-worklog/1.8-week8/ title="Week 8 Worklog" class=dd-item><a href=../../1-worklog/1.8-week8/><b>1.8. </b>Week 8 Worklog
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/1-worklog/1.9-week9/ title="Week 9 Worklog" class=dd-item><a href=../../1-worklog/1.9-week9/><b>1.9. </b>Week 9 Worklog
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/1-worklog/1.10-week10/ title="Week 10 Worklog" class=dd-item><a href=../../1-worklog/1.10-week10/><b>1.10. </b>Week 10 Worklog
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/1-worklog/1.11-week11/ title="Week 11 Worklog" class=dd-item><a href=../../1-worklog/1.11-week11/><b>1.11. </b>Week 11 Worklog
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/1-worklog/1.12-week12/ title="Week 12 Worklog" class=dd-item><a href=../../1-worklog/1.12-week12/><b>1.12. </b>Week 12 Worklog
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/1-worklog/1.2-week2/ title class=dd-item><a href=../../1-worklog/1.2-week2/><i class="fas fa-check read-icon"></i></a></li></ul></li><li data-nav-id=/2-proposal/ title="Proposal 2HTD-LearningHub" class=dd-item><a href=../../2-proposal/><b>2. </b>Proposal
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/3-blogstranslated/ title="Translated Blogs" class="dd-item
+parent"><a href=../../3-blogstranslated/><b>3. </b>Translated Blogs
+<i class="fas fa-check read-icon"></i></a><ul><li data-nav-id=/3-blogstranslated/3.1-blog1/ title="Blog 1" class=dd-item><a href=../../3-blogstranslated/3.1-blog1/><b>3.1. </b>Blog 1
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/3-blogstranslated/3.2-blog2/ title="Blog 2" class="dd-item
+active"><a href=../../3-blogstranslated/3.2-blog2/><b>3.2. </b>Blog 2
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/3-blogstranslated/3.3-blog3/ title="Blog 3" class=dd-item><a href=../../3-blogstranslated/3.3-blog3/><b>3.3. </b>Blog 3
+<i class="fas fa-check read-icon"></i></a></li></ul></li><li data-nav-id=/4-eventparticipated/ title="Events Participated" class=dd-item><a href=../../4-eventparticipated/><b>4. </b>Events Participated
+<i class="fas fa-check read-icon"></i></a><ul><li data-nav-id=/4-eventparticipated/4.2-event2/ title="Event 2" class=dd-item><a href=../../4-eventparticipated/4.2-event2/><b>4.2. </b>Event 2
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/4-eventparticipated/4.1-event1/ title class=dd-item><a href=../../4-eventparticipated/4.1-event1/><i class="fas fa-check read-icon"></i></a></li></ul></li><li data-nav-id=/5-workshop/ title=Workshop class=dd-item><a href=../../5-workshop/><b>5. </b>Workshop
+<i class="fas fa-check read-icon"></i></a><ul><li data-nav-id=/5-workshop/5.1-workshop-overview/ title=Introduction class=dd-item><a href=../../5-workshop/5.1-workshop-overview/><b>5.1. </b>Introduction
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/5-workshop/5.2-prerequiste/ title=Prerequiste class=dd-item><a href=../../5-workshop/5.2-prerequiste/><b>5.2. </b>Prerequiste
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/5-workshop/5.3-cognito-api-gateway/ title="Cognito + API Gateway" class=dd-item><a href=../../5-workshop/5.3-cognito-api-gateway/><b>5.3. </b>Cognito + API Gateway
+<i class="fas fa-check read-icon"></i></a><ul><li data-nav-id=/5-workshop/5.3-cognito-api-gateway/5.3.1-create-andconfigue-cognito/ title="Create and configure Cognito & API Gateway" class=dd-item><a href=../../5-workshop/5.3-cognito-api-gateway/5.3.1-create-andconfigue-cognito/>Create and configure Cognito & API Gateway
+<i class="fas fa-check read-icon"></i></a></li></ul></li><li data-nav-id=/5-workshop/5.4-lambda-api-gateway/ title="Lambda + API Gateway" class=dd-item><a href=../../5-workshop/5.4-lambda-api-gateway/><b>5.4. </b>Lambda + API Gateway
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/5-workshop/5.5-ec2-privatesubnet/ title="EC2 (Private Subnet) — Windows + SQL Server" class=dd-item><a href=../../5-workshop/5.5-ec2-privatesubnet/><b>5.5. </b>EC2 (Private Subnet) — Windows + SQL Server
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/5-workshop/5.6-cleanup/ title="Clean up" class=dd-item><a href=../../5-workshop/5.6-cleanup/><b>5.6. </b>Clean up
+<i class="fas fa-check read-icon"></i></a></li></ul></li><li data-nav-id=/6-self-evaluation/ title=Self-Assessment class=dd-item><a href=../../6-self-evaluation/><b>6. </b>Self-Assessment
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/7-feedback/ title="Sharing and Feedback" class=dd-item><a href=../../7-feedback/><b>7. </b>Sharing and Feedback
+<i class="fas fa-check read-icon"></i></a></li></ul><section id=shortcuts><h3>More</h3><ul><li><a class=padding href=https://www.facebook.com/groups/awsstudygroupfcj/><i class='fab fa-facebook'></i> AWS Study Group</a></li></ul></section><section id=prefooter><hr><ul><li><a class=padding><i class="fas fa-language fa-fw"></i><div class=select-style><select id=select-language onchange="location=this.value"><option id=en value=/3-blogstranslated/3.2-blog2/ selected>English</option><option id=vi value=/vi/3-blogstranslated/3.2-blog2/>Tiếng Việt</option></select>
+<svg id="Capa_1" xmlns:xlink="http://www.w3.org/1999/xlink" width="255" height="255" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255"><g><g id="arrow-drop-down"><polygon points="0,63.75 127.5,191.25 255,63.75"/></g></g></svg></div></a></li><li><a class=padding href=# data-clear-history-toggle><i class="fas fa-history fa-fw"></i> Clear History</a></li></ul></section><section id=footer><left><b>Workshop</b><br><img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0" title=Migrate alt="web counter" border=0></a><br><b><a href=https://cloudjourney.awsstudygroup.com/>Cloud Journey</a></b><br><img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" alt="web counter" border=0>
+</left><left><br><br><b>Last Updated</b><br><i><span id=lastUpdated style=color:orange></span>
+</i><script>const today=new Date,formattedDate=today.toLocaleDateString("en-GB");document.getElementById("lastUpdated").textContent=formattedDate</script></left><left><br><br><b>Team</b><br><i><a href=https://www.facebook.com/groups/660548818043427 style=color:orange>First Cloud Journey</a><br></i></left><script async defer src=https://buttons.github.io/buttons.js></script></section></div></nav><section id=body><div id=overlay></div><div class="padding highlightable"><div><div id=top-bar><div id=breadcrumbs itemscope itemtype=http://data-vocabulary.org/Breadcrumb><span id=sidebar-toggle-span><a href=# id=sidebar-toggle data-sidebar-toggle><i class="fas fa-bars"></i>
+</a></span><span id=toc-menu><i class="fas fa-list-alt"></i></span>
+<span class=links><a href=../../>Internship Report</a> > <a href=../../3-blogstranslated/>Translated Blogs</a> > Blog 2</span></div><div class=progress><div class=wrapper><nav id=TableOfContents><ul><li><a href=#new-features-released-from-amazon-location-service>New features released from Amazon Location Service</a></li><li><a href=#creating-api-keys>Creating API Keys</a></li><li><a href=#new-maps-api-features>New Maps API features</a></li><li><a href=#building-the-foundation-for-a-map-application-with-getstyledescriptor>Building the foundation for a map application with GetStyleDescriptor</a></li><li><a href=#creating-a-static-map-image-with-getstaticmap>Creating a static map image with GetStaticMap</a></li><li><a href=#new-places-api-features>New Places API features</a></li><li><a href=#searching-for-specified-poi-data-with-searchtext>Searching for specified POI data with SearchText</a></li><li><a href=#searching-to-retrieve-poi-data-around-a-specified-location-with-searchnearby>Searching to retrieve POI data around a specified location with SearchNearby</a></li><li><a href=#new-routes-api-features>New Routes API features</a></li><li><a href=#find-the-reachable-range-from-a-specified-location-with-calculateisolines>Find the reachable range from a specified location with CalculateIsolines</a></li><li><a href=#obtaining-location-corrected-route-data-with-snaptoroads>Obtaining location-corrected route data with SnapToRoads</a></li><li><a href=#cleanup>Cleanup</a></li><li><a href=#conclusion>Conclusion</a></li></ul></nav></div></div></div></div><div id=head-tags></div><div id=body-inner><h1>Blog 2</h1><h1 id=new-features-and-developer-experience-with-enhanced-amazon-location-service>New features and developer experience with enhanced Amazon Location Service</h1><p>This blog post was written by Yasunori Kirimoto – CEO of MIERUNE</p><p>Building geospatial applications requires expertise in handling geospatial data, as well as designing and developing systems. It also requires skills in collecting and managing vast amounts of geospatial data and using it effectively within the application. This process can be very labor intensive, but its complexity can be greatly reduced by leveraging Amazon Location Service.</p><p>With Amazon Location Service, highly accurate geospatial data can be quickly obtained from APIs, allowing developers to focus on building applications. In addition, Amazon Location Service has been updated, adding new features in addition to its previous functionality. We’ll introduce the new features of Amazon Location Service and demonstrate how to leverage them in your application.</p><hr><h2 id=new-features-released-from-amazon-location-service>New features released from Amazon Location Service</h2><p>The biggest change is that resource creation is no longer required. This means users no longer need to create individual resources (such as Place Indexes, Maps, and Route Calculators), but can set up an API key and immediately start using Amazon Location Service.</p><p>In addition, significant enhancements and new features have been added to the Maps, Places, and Routes APIs. The Maps API has been updated with additional styles, as well as the new static map capability. The Places API has been enhanced with new search and geocoding capabilities. Finally, the Routes API has been updated with new features such as Snap to Road, Waypoint Optimization, and additional travel modes.</p><h2 id=creating-api-keys>Creating API Keys</h2><p>In order to create an API Key, we can utilize the AWS Management Console, or the AWS Cloud Control API. For this example, we will use the console. Navigate to the Amazon Location Service Console, and select API keys under Manage resources. Select Create API key
+For the purposes of our demonstration, we will name the API Key LasVegasMaps and select the following actions:</p><p>– GetStaticMap
+– GetTile
+– Geocode
+– GetPlace
+– SearchNearby
+– SearchText
+– CalculateIsolines
+– SnapToRoads</p><p>Scrolling down, we have additional options including the ability to set an Expire time, and Referers. These are optional, but we highly recommend them for production applications. NOTE: For the purposes of this demonstration we are leaving these as Default.</p><p>Select <strong>Create API key</strong>.
+Now with the API Key created, we need to retrieve the value to use in our application. Select Show API key value and copy the value into a safe location.</p><h2 id=new-maps-api-features>New Maps API features</h2><p>First, we will highlight and introduce the GetStyleDescriptor and GetStaticMap functions.</p><h2 id=building-the-foundation-for-a-map-application-with-getstyledescriptor>Building the foundation for a map application with GetStyleDescriptor</h2><p>The GetStyleDescriptor function allows you to retrieve map style information and quickly build the foundation for your map application. This feature could be used for various geospatial solutions and application foundations. The new version offers expanded map styles, purpose-built for different applications—offering dark and light mode with varying levels of map detail.</p><p>We will demonstrate how to take advantage of these map styles using MapLibre GL JS. We’ll create a very straightforward HTML page using MapLibre GL JS and Amazon Location Service API Keys.</p><p>Begin by creating a blank HTML page, naming it simpleMap.html, and copying the following code into the page:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#ae81ff>&lt;!DOCTYPE html&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>&lt;html lang=&#34;en&#34;&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>&lt;head&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;meta charset=&#34;UTF-8&#34;&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;title&gt;Amazon Location Service Map&lt;/title&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;!-- MapLibre GL CSS --&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;link href=&#34;https://unpkg.com/maplibre-gl@3.x/dist/maplibre-gl.css&#34; rel=&#34;stylesheet&#34; /&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;style&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>body {</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>margin</span>: <span style=color:#ae81ff>0</span><span style=color:#ae81ff>;</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#75715e>#map {</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>height</span>: <span style=color:#ae81ff>100vh; /* Full viewport height */</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;/style&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>&lt;/head&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>&lt;body&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;!-- Map container --&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;div id=&#34;map&#34;&gt;&lt;/div&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;!-- JavaScript dependencies --&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;script src=&#34;https://unpkg.com/maplibre-gl@3.x/dist/maplibre-gl.js&#34;&gt;&lt;/script&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;script&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>// Configuration</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>const region = &#34;&lt;AWS Region&gt;&#34;; // Replace with your AWS region</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>const mapApiKey = &#34;&lt;Your API Key&gt;&#34;; // Replace with your Amazon Location Service API key</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>async function initializeMap() {</span>
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>// Initialize the map</span>
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>const map = new maplibregl.Map({</span>
+</span></span><span style=display:flex><span>                <span style=color:#f92672>container</span>: <span style=color:#e6db74>&#34;map&#34;</span>, <span style=color:#ae81ff>// HTML element ID where the map will be rendered</span>
+</span></span><span style=display:flex><span>                <span style=color:#f92672>center</span>: [-<span style=color:#ae81ff>115.1473824627421</span>, <span style=color:#ae81ff>36.17071351509272</span>], <span style=color:#ae81ff>// Initial map center coordinates (Las Vegas)</span>
+</span></span><span style=display:flex><span>                <span style=color:#f92672>zoom</span>: <span style=color:#ae81ff>12</span>, <span style=color:#ae81ff>// Initial zoom level</span>
+</span></span><span style=display:flex><span>                <span style=color:#f92672>style</span>: <span style=color:#ae81ff>`https://maps.geo.${region}.amazonaws.com/v2/styles/Standard/descriptor?&amp;color-scheme=Light&amp;variant=Default&amp;key=${mapApiKey}`, // Map style URL</span>
+</span></span><span style=display:flex><span>            }<span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>// Add navigation controls to the map</span>
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>map.addControl(new maplibregl.NavigationControl(), &#34;top-left&#34;);</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>// Call the function to initialize the map</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>initializeMap();</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;/script&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>&lt;/body&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>&lt;/html&gt;</span>
+</span></span></code></pre></div><p>Now open this HTML page in a browser. You should see a map of Las Vegas, NV. The key to this map is the style URL we set previously in our code. In this URL, we’ve requested that we use the Standard style map in a light color scheme. We can add additional parameters such as political views as well.</p><h2 id=creating-a-static-map-image-with-getstaticmap>Creating a static map image with GetStaticMap</h2><p>zoom level, and image size you specify. This feature helps include map images in printed materials and media posts. There are various parameters for this feature, including the ability to overlay other data (such as points, lines and polygons). We’ve provided a basic example. Be certain to edit the URL for your AWS Region and your newly created API Key. Paste the following URL into the address bar of your web browser to display a static map image of the specified location:
+<strong><a href=https://maps.geo>https://maps.geo</a>.<your aws region>.amazonaws.com/v2/static/map?center=-115.170,36.122&amp;zoom=15&amp;width=1024&amp;height=1024&amp;key=<your api key></strong></p><h2 id=new-places-api-features>New Places API features</h2><p>Next, we will highlight and introduce the SearchText and SearchNearby features</p><h2 id=searching-for-specified-poi-data-with-searchtext>Searching for specified POI data with SearchText</h2><p>The SearchText feature allows users to search for and present specified points of interest (POI) data. This feature is designed for users to quickly search for a specific location or facility. Users can send a POST request with the specified parameters and receive a response containing candidate point data. We will demonstrate an example of visualizing that data on a map.</p><p>Create a new HTML file named searchText.html and paste the following contents into the file:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#ae81ff>&lt;!DOCTYPE html&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>&lt;html lang=&#34;en&#34;&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>&lt;head&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;meta charset=&#34;UTF-8&#34;&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;title&gt;Amazon Location Service – Search Text&lt;/title&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;link href=&#34;https://unpkg.com/maplibre-gl@3.x/dist/maplibre-gl.css&#34; rel=&#34;stylesheet&#34; /&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;style&gt;</span>
+</span></span><span style=display:flex><span>      <span style=color:#ae81ff>body {</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>margin</span>: <span style=color:#ae81ff>0</span><span style=color:#ae81ff>;</span>
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>      <span style=color:#75715e>#map {</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>height</span>: <span style=color:#ae81ff>100vh;</span>
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;/style&gt;</span>
+</span></span><span style=display:flex><span>  <span style=color:#ae81ff>&lt;/head&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#ae81ff>&lt;body&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;!-- map container --&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;div id=&#34;map&#34;&gt;&lt;/div&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;!-- JavaScript dependencies --&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;script src=&#34;https://unpkg.com/maplibre-gl@3.x/dist/maplibre-gl.js&#34;&gt;&lt;/script&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;!-- Import the Amazon Location Client --&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;script src=&#34;https://cdn.jsdelivr.net/npm/@aws/amazon-location-client@1&#34;&gt;&lt;/script&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;!-- Import the utility library --&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;script src=&#34;https://cdn.jsdelivr.net/npm/@aws/amazon-location-utilities-datatypes@1&#34;&gt;&lt;/script&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;script&gt;</span>
+</span></span><span style=display:flex><span>      <span style=color:#ae81ff>// Configuration</span>
+</span></span><span style=display:flex><span>      <span style=color:#ae81ff>// Set the AWS region for Amazon Location Service</span>
+</span></span><span style=display:flex><span>      <span style=color:#ae81ff>const region = &#34;&lt;AWS Region&gt;&#34;;</span>
+</span></span><span style=display:flex><span>      <span style=color:#ae81ff>// API key for authenticating requests</span>
+</span></span><span style=display:flex><span>      <span style=color:#ae81ff>const mapApiKey = &#34;&lt;Amazon Location Service API Key&gt;&#34;;</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>      <span style=color:#ae81ff>async function initializeMap() {</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>// Create an authentication helper using the API key</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>const authHelper = await amazonLocationClient.withAPIKey(mapApiKey, region);</span>
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>// Initialize the Amazon Location Service Places client</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>const client = new amazonLocationClient.places.GeoPlacesClient(</span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>authHelper.getClientConfig()</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>// Define search parameters for coffee shops</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>const SearchTextInput = {</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>BiasPosition</span>: [-<span style=color:#ae81ff>115.170</span>, <span style=color:#ae81ff>36.122</span>], <span style=color:#ae81ff>// Las Vegas coordinates</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>MaxResults</span>: <span style=color:#ae81ff>25</span>,
+</span></span><span style=display:flex><span>          <span style=color:#f92672>QueryText</span>: <span style=color:#e6db74>&#34;Coffee Shops&#34;</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>// Perform the search using Amazon Location Service</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>const searchResults = await client.send(</span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>new amazonLocationClient.places.SearchTextCommand(SearchTextInput)</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>)</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>// Initialize the map</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>const map = new maplibregl.Map({</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>container</span>: <span style=color:#e6db74>&#34;map&#34;</span>,
+</span></span><span style=display:flex><span>          <span style=color:#f92672>center</span>: [-<span style=color:#ae81ff>115.170</span>, <span style=color:#ae81ff>36.122</span>], <span style=color:#ae81ff>// Las Vegas coordinates</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>zoom</span>: <span style=color:#ae81ff>14</span>,
+</span></span><span style=display:flex><span>          <span style=color:#f92672>style</span>: <span style=color:#ae81ff>`https://maps.geo.${region}.amazonaws.com/v2/styles/Standard/descriptor?&amp;color-scheme=Light&amp;variant=Default&amp;key=${mapApiKey}`,</span>
+</span></span><span style=display:flex><span>        }<span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>// Add navigation controls to the map</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>map.addControl(new maplibregl.NavigationControl(), &#34;top-left&#34;);</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>// When the map is loaded, add search results as a layer</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>map.on(&#34;load&#34;, () =&gt; {</span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>// Convert search results into a GeoJSON FeatureCollection</span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>const featureCollection = amazonLocationDataConverter.searchTextResponseToFeatureCollection(searchResults);</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>// Add a data source containing GeoJSON from the search results</span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>map.addSource(&#34;place-index-results&#34;, {</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>type</span>: <span style=color:#e6db74>&#34;geojson&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>data</span>: <span style=color:#ae81ff>featureCollection,</span>
+</span></span><span style=display:flex><span>          }<span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>// Add a new layer to visualize the points</span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>map.addLayer({</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>id</span>: <span style=color:#e6db74>&#34;place-index-results&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>type</span>: <span style=color:#e6db74>&#34;circle&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>source</span>: <span style=color:#e6db74>&#34;place-index-results&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>paint</span>: {
+</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;circle-radius&#34;: </span><span style=color:#ae81ff>8</span>,
+</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;circle-color&#34;: </span><span style=color:#e6db74>&#34;#0080ff&#34;</span>,
+</span></span><span style=display:flex><span>            },
+</span></span><span style=display:flex><span>          }<span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>// Add click event listener for the search result points</span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>map.on(&#39;click&#39;, &#39;place-index-results&#39;, (e) =&gt; {</span>
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>if (e.features.length &gt; 0) {</span>
+</span></span><span style=display:flex><span>              <span style=color:#ae81ff>const feature = e.features[0];</span>
+</span></span><span style=display:flex><span>              <span style=color:#ae81ff>const coordinates = feature.geometry.coordinates.slice();</span>
+</span></span><span style=display:flex><span>              
+</span></span><span style=display:flex><span>              <span style=color:#ae81ff>// Create a formatted HTML string with the feature&#39;s properties</span>
+</span></span><span style=display:flex><span>              <span style=color:#ae81ff>const properties = feature.properties;</span>
+</span></span><span style=display:flex><span>              <span style=color:#ae81ff>let description = &#39;&lt;h3&gt;&#39; + (properties[&#39;Title&#39;] || &#39;Unnamed Location&#39;) + &#39;&lt;/h3&gt;&#39;;</span>
+</span></span><span style=display:flex><span>              <span style=color:#f92672>description += &#39;&lt;p&gt;Address</span>: <span style=color:#e6db74>&#39; + (properties[&#39;</span><span style=color:#ae81ff>Address.Label&#39;] || &#39;N/A&#39;) + &#39;&lt;/p&gt;&#39;;</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>              <span style=color:#ae81ff>// Create and display a popup with the location information</span>
+</span></span><span style=display:flex><span>              <span style=color:#ae81ff>new maplibregl.Popup()</span>
+</span></span><span style=display:flex><span>                <span style=color:#ae81ff>.setLngLat(coordinates)</span>
+</span></span><span style=display:flex><span>                <span style=color:#ae81ff>.setHTML(description)</span>
+</span></span><span style=display:flex><span>                <span style=color:#ae81ff>.addTo(map);</span>
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>          }<span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>map.on(&#39;mouseenter&#39;, &#39;place-index-results&#39;, () =&gt; {</span>
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>map.getCanvas().style.cursor = &#39;pointer&#39;;</span>
+</span></span><span style=display:flex><span>          }<span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>map.on(&#39;mouseleave&#39;, &#39;place-index-results&#39;, () =&gt; {</span>
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>map.getCanvas().style.cursor = &#39;&#39;;</span>
+</span></span><span style=display:flex><span>          }<span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>        }<span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>      <span style=color:#ae81ff>// Call the function to initialize the map</span>
+</span></span><span style=display:flex><span>      <span style=color:#ae81ff>initializeMap();</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;/script&gt;</span>
+</span></span><span style=display:flex><span>  <span style=color:#ae81ff>&lt;/body&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>&lt;/html&gt;</span>
+</span></span></code></pre></div><p>Opening the HTML file in a browser will show the following map with coffee shops centered around the Venetian Resort in Las Vegas, NV.</p><h2 id=searching-to-retrieve-poi-data-around-a-specified-location-with-searchnearby>Searching to retrieve POI data around a specified location with SearchNearby</h2><p>The SearchNearby function allows you to retrieve POI data near a specified location. This feature is handy for users to search for nearby stores and attractions. Users can send a POST request with the specified parameters and receive a response containing candidate point data. We will demonstrate an example of visualizing that data on a map.</p><p>Create a new HTML file named searchNearby.html and paste the following contents into the file:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#ae81ff>&lt;!DOCTYPE html&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>&lt;html lang=&#34;en&#34;&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>&lt;head&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;meta charset=&#34;UTF-8&#34;&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;title&gt;Amazon Location Service – Search Nearby&lt;/title&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;link href=&#34;https://unpkg.com/maplibre-gl@3.x/dist/maplibre-gl.css&#34; rel=&#34;stylesheet&#34; /&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;style&gt;</span>
+</span></span><span style=display:flex><span>      <span style=color:#ae81ff>body {</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>margin</span>: <span style=color:#ae81ff>0</span><span style=color:#ae81ff>;</span>
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>      <span style=color:#75715e>#map {</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>height</span>: <span style=color:#ae81ff>100vh;</span>
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;/style&gt;</span>
+</span></span><span style=display:flex><span>  <span style=color:#ae81ff>&lt;/head&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#ae81ff>&lt;body&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;!-- map container --&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;div id=&#34;map&#34;&gt;&lt;/div&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;!-- JavaScript dependencies --&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;script src=&#34;https://unpkg.com/maplibre-gl@3.x/dist/maplibre-gl.js&#34;&gt;&lt;/script&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;!-- Import the Amazon Location Client --&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;script src=&#34;https://cdn.jsdelivr.net/npm/@aws/amazon-location-client@1&#34;&gt;&lt;/script&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;!-- Import the utility library --&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;script src=&#34;https://cdn.jsdelivr.net/npm/@aws/amazon-location-utilities-datatypes@1&#34;&gt;&lt;/script&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;script&gt;</span>
+</span></span><span style=display:flex><span>      <span style=color:#ae81ff>// Configuration</span>
+</span></span><span style=display:flex><span>      
+</span></span><span style=display:flex><span>      <span style=color:#ae81ff>// Set the AWS region for Amazon Location Service</span>
+</span></span><span style=display:flex><span>      <span style=color:#ae81ff>const region = &#34;&lt;AWS Region&gt;&#34;;</span>
+</span></span><span style=display:flex><span>      <span style=color:#ae81ff>// API key for authenticating map requests</span>
+</span></span><span style=display:flex><span>      <span style=color:#ae81ff>const mapApiKey = &#34;&lt;Amazon Location Service API Key&gt;&#34;;</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>      <span style=color:#ae81ff>async function initializeMap() {</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>// Create an authentication helper using the API key</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>const authHelper = await amazonLocationClient.withAPIKey(mapApiKey, region);</span>
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>// Initialize the Amazon Location Service Places client</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>const client = new amazonLocationClient.places.GeoPlacesClient(</span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>authHelper.getClientConfig()</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>// Define search parameters for nearby casinos and hotels</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>const SearchNearbyInput = {</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>QueryPosition</span>: [-<span style=color:#ae81ff>115.170</span>, <span style=color:#ae81ff>36.122</span>], <span style=color:#ae81ff>// Las Vegas coordinates</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>MaxResults</span>: <span style=color:#ae81ff>25</span>,
+</span></span><span style=display:flex><span>          <span style=color:#f92672>Filter</span>: {
+</span></span><span style=display:flex><span>            <span style=color:#f92672>IncludeCategories</span>: [
+</span></span><span style=display:flex><span>              <span style=color:#e6db74>&#34;casino&#34;</span>,
+</span></span><span style=display:flex><span>              <span style=color:#e6db74>&#34;hotel&#34;</span>
+</span></span><span style=display:flex><span>            ]
+</span></span><span style=display:flex><span>          }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>// Perform the nearby search using Amazon Location Service</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>const searchResults = await client.send(</span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>new amazonLocationClient.places.SearchNearbyCommand(SearchNearbyInput)</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>)</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>// Initialize the map</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>const map = new maplibregl.Map({</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>container</span>: <span style=color:#e6db74>&#34;map&#34;</span>,
+</span></span><span style=display:flex><span>          <span style=color:#f92672>center</span>: [-<span style=color:#ae81ff>115.170</span>, <span style=color:#ae81ff>36.122</span>], <span style=color:#ae81ff>// Las Vegas coordinates</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>zoom</span>: <span style=color:#ae81ff>15</span>,
+</span></span><span style=display:flex><span>          <span style=color:#f92672>style</span>: <span style=color:#ae81ff>`https://maps.geo.${region}.amazonaws.com/v2/styles/Standard/descriptor?&amp;color-scheme=Light&amp;variant=Default&amp;key=${mapApiKey}`,</span>
+</span></span><span style=display:flex><span>        }<span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>// Add navigation controls to the map</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>map.addControl(new maplibregl.NavigationControl(), &#34;top-left&#34;);</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>// When the map is loaded, add search results as a layer</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>map.on(&#34;load&#34;, () =&gt; {</span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>// Convert search results into a GeoJSON FeatureCollection</span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>const featureCollection = amazonLocationDataConverter.searchNearbyResponseToFeatureCollection(searchResults);</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>// Add a data source containing GeoJSON from the search results</span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>map.addSource(&#34;place-index-results&#34;, {</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>type</span>: <span style=color:#e6db74>&#34;geojson&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>data</span>: <span style=color:#ae81ff>featureCollection,</span>
+</span></span><span style=display:flex><span>          }<span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>// Add a new layer to visualize the points</span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>map.addLayer({</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>id</span>: <span style=color:#e6db74>&#34;place-index-results&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>type</span>: <span style=color:#e6db74>&#34;circle&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>source</span>: <span style=color:#e6db74>&#34;place-index-results&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>paint</span>: {
+</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;circle-radius&#34;: </span><span style=color:#ae81ff>8</span>,
+</span></span><span style=display:flex><span>              <span style=color:#f92672>&#34;circle-color&#34;: </span><span style=color:#e6db74>&#34;#0080ff&#34;</span>,
+</span></span><span style=display:flex><span>            },
+</span></span><span style=display:flex><span>          }<span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>// Add click event listener for the search result points</span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>map.on(&#39;click&#39;, &#39;place-index-results&#39;, (e) =&gt; {</span>
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>if (e.features.length &gt; 0) {</span>
+</span></span><span style=display:flex><span>              <span style=color:#ae81ff>const feature = e.features[0];</span>
+</span></span><span style=display:flex><span>              <span style=color:#ae81ff>const coordinates = feature.geometry.coordinates.slice();</span>
+</span></span><span style=display:flex><span>              
+</span></span><span style=display:flex><span>              <span style=color:#ae81ff>// Create a formatted HTML string with the feature&#39;s properties</span>
+</span></span><span style=display:flex><span>              <span style=color:#ae81ff>const properties = feature.properties;</span>
+</span></span><span style=display:flex><span>              <span style=color:#ae81ff>let description = &#39;&lt;h3&gt;&#39; + (properties[&#39;Title&#39;] || &#39;Unnamed Location&#39;) + &#39;&lt;/h3&gt;&#39;;</span>
+</span></span><span style=display:flex><span>              <span style=color:#f92672>description += &#39;&lt;p&gt;Address</span>: <span style=color:#e6db74>&#39; + (properties[&#39;</span><span style=color:#ae81ff>Address.Label&#39;] || &#39;N/A&#39;) + &#39;&lt;/p&gt;&#39;;</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>              <span style=color:#ae81ff>// Create and display a popup with the location information</span>
+</span></span><span style=display:flex><span>              <span style=color:#ae81ff>new maplibregl.Popup()</span>
+</span></span><span style=display:flex><span>                <span style=color:#ae81ff>.setLngLat(coordinates)</span>
+</span></span><span style=display:flex><span>                <span style=color:#ae81ff>.setHTML(description)</span>
+</span></span><span style=display:flex><span>                <span style=color:#ae81ff>.addTo(map);</span>
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>          }<span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>map.on(&#39;mouseenter&#39;, &#39;place-index-results&#39;, () =&gt; {</span>
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>map.getCanvas().style.cursor = &#39;pointer&#39;;</span>
+</span></span><span style=display:flex><span>          }<span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>map.on(&#39;mouseleave&#39;, &#39;place-index-results&#39;, () =&gt; {</span>
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>map.getCanvas().style.cursor = &#39;&#39;;</span>
+</span></span><span style=display:flex><span>          }<span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>        }<span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>      <span style=color:#ae81ff>// Call the function to initialize the map</span>
+</span></span><span style=display:flex><span>      <span style=color:#ae81ff>initializeMap();</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;/script&gt;</span>
+</span></span><span style=display:flex><span>  <span style=color:#ae81ff>&lt;/body&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>&lt;/html&gt;</span>
+</span></span></code></pre></div><p>Opening the HTML file in a browser will show the following map showing hotel and casino locations centered around the Venetian Resort in Las Vegas, NV.</p><h2 id=new-routes-api-features>New Routes API features</h2><p>Finally, we will discuss the new CalculateIsolines and SnapToRoads functions.</p><h2 id=find-the-reachable-range-from-a-specified-location-with-calculateisolines>Find the reachable range from a specified location with CalculateIsolines</h2><p>The CalculateIsolines function can retrieve the reachable range from a specified point. Some use cases for Isolines include identifying deliverable areas and evaluating property locations. Users can send a POST request with the specified parameters and receive a response containing polygon data indicating the reachable area. We will demonstrate an example of visualizing that data on a map.</p><p>Create a new HTML file and name it calculateIsolines.html and paste the following contents into the file:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#ae81ff>&lt;!DOCTYPE html&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>&lt;html lang=&#34;en&#34;&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>&lt;head&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;meta charset=&#34;UTF-8&#34;&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;title&gt;Amazon Location Service - Isolines&lt;/title&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;link href=&#34;https://unpkg.com/maplibre-gl@3.x/dist/maplibre-gl.css&#34; rel=&#34;stylesheet&#34; /&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;style&gt;</span>
+</span></span><span style=display:flex><span>      <span style=color:#ae81ff>body {</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>margin</span>: <span style=color:#ae81ff>0</span><span style=color:#ae81ff>;</span>
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>      <span style=color:#75715e>#map {</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>height</span>: <span style=color:#ae81ff>100vh;</span>
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;/style&gt;</span>
+</span></span><span style=display:flex><span>  <span style=color:#ae81ff>&lt;/head&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#ae81ff>&lt;body&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;!-- map container --&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;div id=&#34;map&#34;&gt;&lt;/div&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;!-- JavaScript dependencies --&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;script src=&#34;https://unpkg.com/maplibre-gl@3.x/dist/maplibre-gl.js&#34;&gt;&lt;/script&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;!-- Import the Amazon Location Client --&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;script src=&#34;https://cdn.jsdelivr.net/npm/@aws/amazon-location-client@1&#34;&gt;&lt;/script&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;!-- Import the utility library --&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;script src=&#34;https://cdn.jsdelivr.net/npm/@aws/amazon-location-utilities-datatypes@1&#34;&gt;&lt;/script&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;script&gt;</span>
+</span></span><span style=display:flex><span>      <span style=color:#ae81ff>// Configuration</span>
+</span></span><span style=display:flex><span>      
+</span></span><span style=display:flex><span>      <span style=color:#ae81ff>// Set the AWS region for the Amazon Location Service</span>
+</span></span><span style=display:flex><span>      <span style=color:#ae81ff>const region = &#34;&lt;AWS Region&gt;&#34;;</span>
+</span></span><span style=display:flex><span>      <span style=color:#ae81ff>// API key for authenticating map requests</span>
+</span></span><span style=display:flex><span>      <span style=color:#ae81ff>const mapApiKey = &#34;&lt;Amazon Location Service API Key&#34;;</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>      <span style=color:#ae81ff>async function initializeMap() {</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>// Create an authentication helper using the API key</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>const authHelper = await amazonLocationClient.withAPIKey(mapApiKey, region);</span>
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>// Initialize the Amazon Location Service Routes client</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>const client = new amazonLocationClient.routes.GeoRoutesClient(</span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>authHelper.getClientConfig()</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>// Define parameters for calculating isolines</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>const IsolinesInput = {</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>Origin</span>: [-<span style=color:#ae81ff>115.17015436843275</span>, <span style=color:#ae81ff>36.12122662193694</span>], <span style=color:#ae81ff>// Starting point coordinates</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>Thresholds</span>: {
+</span></span><span style=display:flex><span>            <span style=color:#f92672>Time</span>: [
+</span></span><span style=display:flex><span>              <span style=color:#ae81ff>300</span>, <span style=color:#ae81ff>600</span>, <span style=color:#ae81ff>900</span> <span style=color:#ae81ff>// Time thresholds in seconds</span>
+</span></span><span style=display:flex><span>            ]
+</span></span><span style=display:flex><span>          },
+</span></span><span style=display:flex><span>          <span style=color:#f92672>TravelMode</span>: <span style=color:#e6db74>&#34;Pedestrian&#34;</span> <span style=color:#ae81ff>// Travel mode for isoline calculation</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>// Calculate isolines using Amazon Location Service</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>const routeResults = await client.send(</span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>new amazonLocationClient.routes.CalculateIsolinesCommand(IsolinesInput)</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>)</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>// Initialize the map</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>const map = new maplibregl.Map({</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>container</span>: <span style=color:#e6db74>&#34;map&#34;</span>,
+</span></span><span style=display:flex><span>          <span style=color:#f92672>center</span>: [-<span style=color:#ae81ff>115.16766776735061</span>, <span style=color:#ae81ff>36.12177195550658</span>], <span style=color:#ae81ff>// Map center coordinates</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>zoom</span>: <span style=color:#ae81ff>15</span>,
+</span></span><span style=display:flex><span>          <span style=color:#f92672>style</span>: <span style=color:#ae81ff>`https://maps.geo.${region}.amazonaws.com/v2/styles/Standard/descriptor?&amp;color-scheme=Light&amp;variant=Default&amp;key=${mapApiKey}`,</span>
+</span></span><span style=display:flex><span>        }<span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>// Add navigation controls to the map</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>map.addControl(new maplibregl.NavigationControl(), &#34;top-left&#34;);</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>// Add a marker at the origin point</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>const marker = new maplibregl.Marker()</span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>.setLngLat([-115.17015436843275, 36.12122662193694])</span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>.addTo(map)</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>// When the map is loaded, add isolines as layers</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>map.on(&#34;load&#34;, () =&gt; {</span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>// Convert isoline results into a GeoJSON FeatureCollection</span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>const featureCollection = amazonLocationDataConverter.calculateIsolinesResponseToFeatureCollection(routeResults);</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>// Add a data source containing GeoJSON from the isoline results</span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>map.addSource(&#34;isolines&#34;, {</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>type</span>: <span style=color:#e6db74>&#34;geojson&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>data</span>: <span style=color:#ae81ff>featureCollection</span>
+</span></span><span style=display:flex><span>          }<span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>// Add a fill layer to visualize the isoline areas</span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>map.addLayer({</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#39;id&#39;</span>: <span style=color:#e6db74>&#39;isolines-fill-900&#39;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#39;type&#39;</span>: <span style=color:#e6db74>&#39;fill&#39;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#39;source&#39;</span>: <span style=color:#e6db74>&#39;isolines&#39;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#39;filter&#39;</span>: [<span style=color:#e6db74>&#39;==&#39;</span>, [<span style=color:#e6db74>&#39;get&#39;</span>, <span style=color:#e6db74>&#39;TimeThreshold&#39;</span>], <span style=color:#ae81ff>900</span>],
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#39;paint&#39;</span>: {
+</span></span><span style=display:flex><span>              <span style=color:#f92672>&#39;fill-color&#39;</span>: <span style=color:#e6db74>&#39;#0000ff&#39;</span>,
+</span></span><span style=display:flex><span>              <span style=color:#f92672>&#39;fill-opacity&#39;</span>: <span style=color:#ae81ff>0.5</span>
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>          }<span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>// Add a layer for 600m (10)</span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>map.addLayer({</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#39;id&#39;</span>: <span style=color:#e6db74>&#39;isolines-fill-600&#39;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#39;type&#39;</span>: <span style=color:#e6db74>&#39;fill&#39;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#39;source&#39;</span>: <span style=color:#e6db74>&#39;isolines&#39;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#39;filter&#39;</span>: [<span style=color:#e6db74>&#39;==&#39;</span>, [<span style=color:#e6db74>&#39;get&#39;</span>, <span style=color:#e6db74>&#39;TimeThreshold&#39;</span>], <span style=color:#ae81ff>600</span>],
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#39;paint&#39;</span>: {
+</span></span><span style=display:flex><span>              <span style=color:#f92672>&#39;fill-color&#39;</span>: <span style=color:#e6db74>&#39;#00ff00&#39;</span>,
+</span></span><span style=display:flex><span>              <span style=color:#f92672>&#39;fill-opacity&#39;</span>: <span style=color:#ae81ff>.5</span>
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>          }<span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>// Add a layer for 300m (5)</span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>map.addLayer({</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#39;id&#39;</span>: <span style=color:#e6db74>&#39;isolines-fill-300&#39;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#39;type&#39;</span>: <span style=color:#e6db74>&#39;fill&#39;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#39;source&#39;</span>: <span style=color:#e6db74>&#39;isolines&#39;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#39;filter&#39;</span>: [<span style=color:#e6db74>&#39;==&#39;</span>, [<span style=color:#e6db74>&#39;get&#39;</span>, <span style=color:#e6db74>&#39;TimeThreshold&#39;</span>], <span style=color:#ae81ff>300</span>],
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#39;paint&#39;</span>: {
+</span></span><span style=display:flex><span>              <span style=color:#f92672>&#39;fill-color&#39;</span>: <span style=color:#e6db74>&#39;#f10000&#39;</span>,
+</span></span><span style=display:flex><span>              <span style=color:#f92672>&#39;fill-opacity&#39;</span>: <span style=color:#ae81ff>0.5</span>
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>          }<span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>// Add an outline layer to highlight the isoline boundaries</span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>map.addLayer({</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#39;id&#39;</span>: <span style=color:#e6db74>&#39;isolines-outline&#39;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#39;type&#39;</span>: <span style=color:#e6db74>&#39;line&#39;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#39;source&#39;</span>: <span style=color:#e6db74>&#39;isolines&#39;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#39;paint&#39;</span>: {
+</span></span><span style=display:flex><span>              <span style=color:#f92672>&#39;line-color&#39;</span>: <span style=color:#e6db74>&#39;#000000&#39;</span>,
+</span></span><span style=display:flex><span>              <span style=color:#f92672>&#39;line-width&#39;</span>: <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>          }<span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>        }<span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>      <span style=color:#ae81ff>// Call the function to initialize the map</span>
+</span></span><span style=display:flex><span>      <span style=color:#ae81ff>initializeMap();</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;/script&gt;</span>
+</span></span><span style=display:flex><span>  <span style=color:#ae81ff>&lt;/body&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>&lt;/html&gt;</span>
+</span></span></code></pre></div><p>Opening the HTML file in a browser will show the following map (Figure 9). This map shows walkable distances from the Venetian Resort in 5-, 15-, and 30-minute timeframes.</p><h2 id=obtaining-location-corrected-route-data-with-snaptoroads>Obtaining location-corrected route data with SnapToRoads</h2><p>The SnapToRoads function allows you to snap GPS data and other location data to the nearest road and obtain line data after location correction. This feature is very useful in improving the accuracy of vehicle tracking and traffic analysis. Users can send a POST request with specified parameters and receive a response containing position-corrected line data. We will demonstrate an example of visualizing the data before and after processing on a map.</p><p>Create a new HTML file named snapToRoad.html and paste the following contents into the file:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#ae81ff>&lt;!DOCTYPE html&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>&lt;html lang=&#34;en&#34;&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>&lt;head&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;meta charset=&#34;UTF-8&#34;&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;title&gt;Amazon Location Service - Snap to Roads&lt;/title&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;!-- MapLibre GL CSS --&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;link href=&#34;https://unpkg.com/maplibre-gl@3.x/dist/maplibre-gl.css&#34; rel=&#34;stylesheet&#34; /&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;style&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>body {</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>margin</span>: <span style=color:#ae81ff>0</span><span style=color:#ae81ff>;</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#75715e>#map {</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>height</span>: <span style=color:#ae81ff>100vh; /* Full viewport height */</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;/style&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>&lt;/head&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>&lt;body&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;!-- Map container --&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;div id=&#34;map&#34;&gt;&lt;/div&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;!-- JavaScript dependencies --&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;script src=&#34;https://unpkg.com/maplibre-gl@3.x/dist/maplibre-gl.js&#34;&gt;&lt;/script&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;!-- Amazon Location Client --&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;script src=&#34;https://cdn.jsdelivr.net/npm/@aws/amazon-location-client@1&#34;&gt;&lt;/script&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;!-- Amazon Location utility library --&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;script src=&#34;https://cdn.jsdelivr.net/npm/@aws/amazon-location-utilities-datatypes@1&#34;&gt;&lt;/script&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;script&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>// Configuration</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>const region = &#34;&lt;AWS Region&gt;&#34;; // Replace with your AWS region</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>const mapApiKey = &#34;&lt;Amazon Location Service API Key&gt;&#34;; // Replace with your API key</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>async function initializeMap() {</span>
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>// Create authentication helper</span>
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>const authHelper = await amazonLocationClient.withAPIKey(mapApiKey, region);</span>
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>// Initialize Amazon Location Service Routes client</span>
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>const client = new amazonLocationClient.routes.GeoRoutesClient(</span>
+</span></span><span style=display:flex><span>                <span style=color:#ae81ff>authHelper.getClientConfig()</span>
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>// GPS trace coordinates</span>
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>const gpsTraceCoordinates = [</span>
+</span></span><span style=display:flex><span>                [-<span style=color:#ae81ff>115.14564318728544</span>, <span style=color:#ae81ff>36.09359703860663</span>],
+</span></span><span style=display:flex><span>                [-<span style=color:#ae81ff>115.14522142988834</span>, <span style=color:#ae81ff>36.09368914760097</span>],
+</span></span><span style=display:flex><span>                [-<span style=color:#ae81ff>115.14477687479442</span>, <span style=color:#ae81ff>36.09345887491297</span>],
+</span></span><span style=display:flex><span>                [-<span style=color:#ae81ff>115.14452610012599</span>, <span style=color:#ae81ff>36.093560194978636</span>],
+</span></span><span style=display:flex><span>                [-<span style=color:#ae81ff>115.14432092085157</span>, <span style=color:#ae81ff>36.09364309311755</span>],
+</span></span><span style=display:flex><span>                [-<span style=color:#ae81ff>115.14383077036334</span>, <span style=color:#ae81ff>36.09360624951118</span>],
+</span></span><span style=display:flex><span>                [-<span style=color:#ae81ff>115.14303285096376</span>, <span style=color:#ae81ff>36.09360624951118</span>],
+</span></span><span style=display:flex><span>                [-<span style=color:#ae81ff>115.14273648090104</span>, <span style=color:#ae81ff>36.09375362383305</span>],
+</span></span><span style=display:flex><span>                [-<span style=color:#ae81ff>115.14218933616989</span>, <span style=color:#ae81ff>36.09353256224662</span>],
+</span></span><span style=display:flex><span>                [-<span style=color:#ae81ff>115.14163079259018</span>, <span style=color:#ae81ff>36.0936154604141</span>],
+</span></span><span style=display:flex><span>                [-<span style=color:#ae81ff>115.14126602943631</span>, <span style=color:#ae81ff>36.093633882217304</span>],
+</span></span><span style=display:flex><span>                [-<span style=color:#ae81ff>115.14136861907319</span>, <span style=color:#ae81ff>36.09338518751021</span>],
+</span></span><span style=display:flex><span>                [-<span style=color:#ae81ff>115.14126602943631</span>, <span style=color:#ae81ff>36.093035171404196</span>],
+</span></span><span style=display:flex><span>                [-<span style=color:#ae81ff>115.14093546282783</span>, <span style=color:#ae81ff>36.092906217708844</span>],
+</span></span><span style=display:flex><span>                [-<span style=color:#ae81ff>115.140479508885</span>, <span style=color:#ae81ff>36.09289700672278</span>],
+</span></span><span style=display:flex><span>                [-<span style=color:#ae81ff>115.14033132385379</span>, <span style=color:#ae81ff>36.09270357576062</span>],
+</span></span><span style=display:flex><span>                [-<span style=color:#ae81ff>115.13951060675709</span>, <span style=color:#ae81ff>36.09278647480254</span>],
+</span></span><span style=display:flex><span>                [-<span style=color:#ae81ff>115.13900905742025</span>, <span style=color:#ae81ff>36.09291542869438</span>],
+</span></span><span style=display:flex><span>                [-<span style=color:#ae81ff>115.13839351959763</span>, <span style=color:#ae81ff>36.09298911653757</span>],
+</span></span><span style=display:flex><span>                [-<span style=color:#ae81ff>115.1378349760179</span>, <span style=color:#ae81ff>36.092906217708844</span>],
+</span></span><span style=display:flex><span>                [-<span style=color:#ae81ff>115.13733342668108</span>, <span style=color:#ae81ff>36.09301674946067</span>],
+</span></span><span style=display:flex><span>                [-<span style=color:#ae81ff>115.13703705661834</span>, <span style=color:#ae81ff>36.09286016276663</span>]
+</span></span><span style=display:flex><span>             ]<span style=color:#ae81ff>;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>// Format trace points for Snap to Roads API</span>
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>const tracePoints = gpsTraceCoordinates.map(coord =&gt; ({</span>
+</span></span><span style=display:flex><span>                <span style=color:#f92672>Position</span>: <span style=color:#ae81ff>coord,</span>
+</span></span><span style=display:flex><span>            }<span style=color:#ae81ff>));    </span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>// Snap to Roads API input</span>
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>const SnapInput = {</span>
+</span></span><span style=display:flex><span>                <span style=color:#f92672>TracePoints</span>: <span style=color:#ae81ff>tracePoints</span>
+</span></span><span style=display:flex><span>            }<span style=color:#ae81ff>;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>// Call Snap to Roads API</span>
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>const snapResults = await client.send(</span>
+</span></span><span style=display:flex><span>                <span style=color:#ae81ff>new amazonLocationClient.routes.SnapToRoadsCommand(SnapInput)</span>
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>// Initialize the map</span>
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>const map = new maplibregl.Map({</span>
+</span></span><span style=display:flex><span>                <span style=color:#f92672>container</span>: <span style=color:#e6db74>&#34;map&#34;</span>,
+</span></span><span style=display:flex><span>                <span style=color:#f92672>center</span>: [-<span style=color:#ae81ff>115.14127503567818</span>, <span style=color:#ae81ff>36.09249839687936</span>], <span style=color:#ae81ff>// Las Vegas area</span>
+</span></span><span style=display:flex><span>                <span style=color:#f92672>zoom</span>: <span style=color:#ae81ff>16</span>,
+</span></span><span style=display:flex><span>                <span style=color:#f92672>style</span>: <span style=color:#ae81ff>`https://maps.geo.${region}.amazonaws.com/v2/styles/Standard/descriptor?&amp;color-scheme=Light&amp;variant=Default&amp;key=${mapApiKey}`,</span>
+</span></span><span style=display:flex><span>            }<span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>// Add navigation controls</span>
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>map.addControl(new maplibregl.NavigationControl(), &#34;top-left&#34;);</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>// When the map is loaded, add the GPS trace and snapped route</span>
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>map.on(&#34;load&#34;, () =&gt; {</span>
+</span></span><span style=display:flex><span>                <span style=color:#ae81ff>// Convert snap results to GeoJSON</span>
+</span></span><span style=display:flex><span>                <span style=color:#ae81ff>const featureCollection = amazonLocationDataConverter.snapToRoadsResponseToFeatureCollection(snapResults);</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#ae81ff>// Add GPS trace source</span>
+</span></span><span style=display:flex><span>                <span style=color:#ae81ff>map.addSource(&#34;gpsTrace&#34;, {</span>
+</span></span><span style=display:flex><span>                    <span style=color:#f92672>type</span>: <span style=color:#e6db74>&#34;geojson&#34;</span>,
+</span></span><span style=display:flex><span>                    <span style=color:#f92672>data</span>: {
+</span></span><span style=display:flex><span>                        <span style=color:#f92672>type</span>: <span style=color:#e6db74>&#34;Feature&#34;</span>,
+</span></span><span style=display:flex><span>                        <span style=color:#f92672>geometry</span>: {
+</span></span><span style=display:flex><span>                            <span style=color:#f92672>type</span>: <span style=color:#e6db74>&#34;LineString&#34;</span>,
+</span></span><span style=display:flex><span>                            <span style=color:#f92672>coordinates</span>: <span style=color:#ae81ff>gpsTraceCoordinates</span>
+</span></span><span style=display:flex><span>                        }
+</span></span><span style=display:flex><span>                    }
+</span></span><span style=display:flex><span>                }<span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#ae81ff>// Add snapped trace source</span>
+</span></span><span style=display:flex><span>                <span style=color:#ae81ff>map.addSource(&#34;snappedTrace&#34;, {</span>
+</span></span><span style=display:flex><span>                    <span style=color:#f92672>type</span>: <span style=color:#e6db74>&#34;geojson&#34;</span>,
+</span></span><span style=display:flex><span>                    <span style=color:#f92672>data</span>: <span style=color:#ae81ff>featureCollection</span>
+</span></span><span style=display:flex><span>                }<span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#ae81ff>// Add GPS trace layer</span>
+</span></span><span style=display:flex><span>                <span style=color:#ae81ff>map.addLayer({</span>
+</span></span><span style=display:flex><span>                    <span style=color:#f92672>&#39;id&#39;</span>: <span style=color:#e6db74>&#39;gpsTrace&#39;</span>,
+</span></span><span style=display:flex><span>                    <span style=color:#f92672>&#39;type&#39;</span>: <span style=color:#e6db74>&#39;line&#39;</span>,
+</span></span><span style=display:flex><span>                    <span style=color:#f92672>&#39;source&#39;</span>: <span style=color:#e6db74>&#39;gpsTrace&#39;</span>,
+</span></span><span style=display:flex><span>                    <span style=color:#f92672>layout</span>: {
+</span></span><span style=display:flex><span>                        <span style=color:#f92672>&#34;line-join&#34;: </span><span style=color:#e6db74>&#34;round&#34;</span>,
+</span></span><span style=display:flex><span>                        <span style=color:#f92672>&#34;line-cap&#34;: </span><span style=color:#e6db74>&#34;round&#34;</span>,
+</span></span><span style=display:flex><span>                    },
+</span></span><span style=display:flex><span>                    <span style=color:#f92672>paint</span>: {
+</span></span><span style=display:flex><span>                        <span style=color:#f92672>&#34;line-color&#34;: </span><span style=color:#e6db74>&#34;#00b0ff&#34;</span>,
+</span></span><span style=display:flex><span>                        <span style=color:#f92672>&#34;line-width&#34;: </span><span style=color:#ae81ff>8</span>,
+</span></span><span style=display:flex><span>                    }
+</span></span><span style=display:flex><span>                }<span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#ae81ff>// Add snapped trace layer</span>
+</span></span><span style=display:flex><span>                <span style=color:#ae81ff>map.addLayer({</span>
+</span></span><span style=display:flex><span>                    <span style=color:#f92672>&#39;id&#39;</span>: <span style=color:#e6db74>&#39;snappedTrace&#39;</span>,
+</span></span><span style=display:flex><span>                    <span style=color:#f92672>&#39;type&#39;</span>: <span style=color:#e6db74>&#39;line&#39;</span>,
+</span></span><span style=display:flex><span>                    <span style=color:#f92672>&#39;source&#39;</span>: <span style=color:#e6db74>&#39;snappedTrace&#39;</span>,
+</span></span><span style=display:flex><span>                    <span style=color:#f92672>layout</span>: {
+</span></span><span style=display:flex><span>                        <span style=color:#f92672>&#34;line-join&#34;: </span><span style=color:#e6db74>&#34;round&#34;</span>,
+</span></span><span style=display:flex><span>                        <span style=color:#f92672>&#34;line-cap&#34;: </span><span style=color:#e6db74>&#34;round&#34;</span>,
+</span></span><span style=display:flex><span>                    },
+</span></span><span style=display:flex><span>                    <span style=color:#f92672>paint</span>: {
+</span></span><span style=display:flex><span>                        <span style=color:#f92672>&#34;line-color&#34;: </span><span style=color:#e6db74>&#34;#d59a9a&#34;</span>,
+</span></span><span style=display:flex><span>                        <span style=color:#f92672>&#34;line-width&#34;: </span><span style=color:#ae81ff>8</span>,
+</span></span><span style=display:flex><span>                    }
+</span></span><span style=display:flex><span>                }<span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>            }<span style=color:#ae81ff>);</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>// Initialize the map</span>
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>initializeMap();</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>&lt;/script&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>&lt;/body&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>&lt;/html&gt;</span>
+</span></span></code></pre></div><p>Opening the HTML file in a browser will show the following map (Figure 10), with the blue line representing a GPS trace, and the red line representing a version that is snapped to roads.</p><h2 id=cleanup>Cleanup</h2><p>The only Amazon Location Service resources created during this demonstration was an API Key. To delete the API Key, navigate to the Amazon Location Service Console, select the API Key we created, and select Deactivate. Confirm your decision to deactivate the key, then select Delete. Also select that you would like to bypass the standard 90-day deactivation period.</p><h2 id=conclusion>Conclusion</h2><p>Amazon Location Service now offers even greater flexibility with the new features. With this update, the previously required resource creation procedure is no longer necessary, and various APIs can be used by setting an API key. This allows users to quickly and smoothly build geospatial applications.</p><p>Notable new features include GetStyleDescriptor and GetStaticMap in the Maps API, SearchText and SearchNearby in the Places API, and CalculateIsolines and SnapToRoads in the Routes API.</p><p>In the Maps API, GetStyleDescriptor can be used to retrieve various map styles and apply them to your application, and GetStaticMap can generate static map images based on the coordinates and zoom levels you specify. The Places API allows you to search POI data using SearchText, and SearchNearby will enable you to find POIs around a specific location. The Routes API can use CalculateIsolines to calculate reachability from a specified point and SnapToRoads to correct GPS data to obtain accurate route data.</p><p>These new features allow application developers to more effectively utilize geospatial data and significantly improve the user experience. Contact an AWS Representative for more information about how we can help accelerate your business.</p><footer class=footline></footer></div></div><div id=navigation><a class="nav nav-prev" href=../../3-blogstranslated/3.1-blog1/ title="Blog 1"><i class="fa fa-chevron-left"></i></a>
+<a class="nav nav-next" href=../../3-blogstranslated/3.3-blog3/ title="Blog 3" style=margin-right:0><i class="fa fa-chevron-right"></i></a></div></section><div style=left:-1e3px;overflow:scroll;position:absolute;top:-1e3px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px><div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div></div><script src=../../js/clipboard.min.js?1765303762></script><script src=../../js/perfect-scrollbar.min.js?1765303762></script><script src=../../js/perfect-scrollbar.jquery.min.js?1765303762></script><script src=../../js/jquery.sticky.js?1765303762></script><script src=../../js/featherlight.min.js?1765303762></script><script src=../../js/highlight.pack.js?1765303762></script><script>hljs.initHighlightingOnLoad()</script><script src=../../js/modernizr.custom-3.6.0.js?1765303762></script><script src=../../js/learn.js?1765303762></script><script src=../../js/hugo-learn.js?1765303762></script><link href=../../mermaid/mermaid.css?1765303762 rel=stylesheet><script src=../../mermaid/mermaid.js?1765303762></script><script>mermaid.initialize({startOnLoad:!0})</script><script>(function(e,t,n,s,o,i,a){e.GoogleAnalyticsObject=o,(e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date),(i=t.createElement(n),a=t.getElementsByTagName(n)[0]),i.async=1,i.src=s,a.parentNode.insertBefore(i,a)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-158079754-2","auto"),ga("send","pageview")</script></body></html>
